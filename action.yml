@@ -1,0 +1,24 @@
+name: 'AWS Deploy S3'
+description: 'Deploy static files to AWS S3'
+branding:
+  icon: upload-cloud
+  color: green
+inputs:
+  region:
+    description: 'AWS Region of S3 Bucket'
+    required: true
+    default: 'us-east-1'
+  bucket:
+    description: 'Name of S3 Bucket'
+    required: true
+  source:
+    description: 'A Local Source Directory to Upload'
+    required: true
+    default: './dist'
+  target:
+    description: 'A Remote Target Directory to Upload'
+    required: true
+    default: ''
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

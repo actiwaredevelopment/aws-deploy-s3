@@ -1,0 +1,7 @@
+node_modules
+test
+jest.config
+.vscode
+.github
+src
+.env
