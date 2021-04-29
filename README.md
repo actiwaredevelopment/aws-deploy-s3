@@ -5,7 +5,6 @@ Deploy static files to AWS S3.
 1. Read local files in the `source` folder
 1. Delete remote s3 files in the `target` folder
 1. Upload all local files to remote s3
-1. Invalidate Cloudfront if `invalidation-id` exists
 
 ## Usage
 
@@ -24,5 +23,4 @@ Deploy static files to AWS S3.
     bucket: <<YOUR_S3_BUCKET>>
     source: <<YOUR_LOCAL_SOURCE_FOLDER>>
     target: <<YOUR_REMOTE_TARGET_FOLDER>
-    invalidation-id: <<YOUR_CLOUDFRONT_INVALIDATION_ID>>
 ```
