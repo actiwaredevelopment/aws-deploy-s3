@@ -20,7 +20,9 @@ class DeployOptions {
     if (!this.source.endsWith('/')) {
       this.source += '/'
     }
-    if (!this.target.endsWith('/')) {
+    if (!this.target) {
+      this.target = ''
+    } else if (!this.target.endsWith('/')) {
       this.target += '/'
     }
     return this

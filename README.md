@@ -17,7 +17,7 @@ Deploy static files to AWS S3.
     aws-region: <<YOUR_S3_REGION>>
 - name: Deploy static files to AWS S3
   id: aws-deploy-s3
-  uses: oneyedev/aws-deploy-s3@v1
+  uses: oneyedev/aws-deploy-s3@v2
   with:
     region: <<YOUR_S3_REGION>>
     bucket: <<YOUR_S3_BUCKET>>
