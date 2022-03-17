@@ -26,3 +26,4 @@ jobs:
           bucket: ${{ secrets.AWS_S3_BUCKET }}
           source: './sample'
           target: 'sample'
+          clear-target: 'false'

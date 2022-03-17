@@ -19,6 +19,10 @@ inputs:
     description: 'A Remote Target Directory to Upload'
     required: true
     default: ''
+  clear-target:
+    description: 'Indicates whether the destination directory should be cleared'
+    required: false
+    default: 'false'
 runs:
   using: 'node12'
   main: 'dist/index.js'

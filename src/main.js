@@ -6,6 +6,7 @@ class DeployOptions {
     this.bucket = ''
     this.source = './dist'
     this.target = ''
+    this.clearTarget = false
   }
 
   merge(other = DeployOptions.prototype) {
@@ -13,6 +14,7 @@ class DeployOptions {
     this.bucket = other.bucket || this.bucket
     this.source = other.source || this.source
     this.target = other.target || this.target
+    this.clearTarget = other.clearTarget || this.clearTarget
     return this
   }
 
@@ -52,7 +54,11 @@ module.exports = async (options = new DeployOptions()) => {
     source: merged.source,
     target: merged.target,
   })
-  await s3Handler.deleteAllObjects(merged.target)
+
+  if (this.clearTarget === true) {
+    await s3Handler.deleteAllObjects(merged.target)
+  }
+
   const uploaded = await s3Handler.uploadFiles(files.items)
   const result = new DeployResult()
   result.options = merged
