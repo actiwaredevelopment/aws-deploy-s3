@@ -13,11 +13,12 @@ class UploadParam {
 }
 
 module.exports.S3Handler = class {
-  constructor({ region, bucket }) {
+  constructor({ region, bucket, tags }) {
     this.s3 = new AWS.S3({ region })
     this.lambda = new AWS.Lambda({ apiVersion: '2015-03-31', region })
     this.cloudfront = new AWS.CloudFront({ region })
     this.bucket = bucket
+    this.tags = tags
   }
 
   listAllObjects(folder) {
@@ -82,6 +83,7 @@ module.exports.S3Handler = class {
               Key: target + fileName,
               Body: file,
               ContentType: mime.getType(fileName),
+              Tagging: this.tags,
             })
           )
         }

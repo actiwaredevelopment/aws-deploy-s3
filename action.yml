@@ -19,6 +19,10 @@ inputs:
     description: 'A Remote Target Directory to Upload'
     required: true
     default: ''
+  tags:
+    description: 'The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")'
+    required: false
+    default: ''
   clear-target:
     description: 'Indicates whether the destination directory should be cleared'
     required: false

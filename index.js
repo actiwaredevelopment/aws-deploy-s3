@@ -8,6 +8,7 @@ async function run() {
       bucket: core.getInput('bucket'),
       source: core.getInput('source'),
       target: core.getInput('target'),
+      tags: core.getInput('tags'),
       clearTarget: core.getInput('clear-target') === 'true' ? true : false,
     })
     core.startGroup(`Computed options`)

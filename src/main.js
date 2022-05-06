@@ -6,6 +6,7 @@ class DeployOptions {
     this.bucket = ''
     this.source = './dist'
     this.target = ''
+    this.tags = ''
     this.clearTarget = false
   }
 
@@ -14,6 +15,7 @@ class DeployOptions {
     this.bucket = other.bucket || this.bucket
     this.source = other.source || this.source
     this.target = other.target || this.target
+    this.tags = other.tags || this.tags
     this.clearTarget = other.clearTarget || this.clearTarget
     return this
   }
@@ -49,6 +51,7 @@ module.exports = async (options = new DeployOptions()) => {
   const s3Handler = new S3Handler({
     region: merged.region,
     bucket: merged.bucket,
+    tags: merged.tags,
   })
   const files = await s3Handler.readFilesToUploadParams({
     source: merged.source,
